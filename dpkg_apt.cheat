@@ -1,0 +1,28 @@
+% dpkg, apt
+
+# Show package info
+dpkg -s <packagename>
+
+# Show which package install the file
+dpkg -S <filename>
+
+# Show package dependencies
+dpkg -I <packagefile>
+
+# Show all files of the package
+dpkg-query -L <packagename>
+
+# Show the source repository of the package
+dpkg -l '<packagename>*' | grep ‘^ii’
+
+# Remove the package, but not dependencies
+dpkg -r --force-depends <package name>
+
+# Don't install files from package to some path
+dpkg-divert -package <packagename> --add --rename <filename>
+
+# Show all installed packages
+apt list --installed
+
+# Show all dependencies for packages
+apt-cache showpkg

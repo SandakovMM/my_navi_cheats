@@ -1,0 +1,122 @@
+% common
+
+# Show file information
+stat <filename>
+
+# Format rights to the file
+stat -c '%A %a %n' *
+
+# Show the catalog tree
+tree -a
+
+# Check which distro is installed
+cat /etc/os-release
+
+# Create file with 1 Mb of random data
+truncate ncate -s 1M <filename>
+
+# Clear file, but not delete
+cp /dev/null <filename>
+
+# Show processes in a tree
+ps -e f www
+
+# Create a directory and move to it
+take <dirname>
+
+# Change a file name
+mv <filename>.{old,new}
+
+# Use the same right for the file 2 as for the file 1
+chmod --reference <file1> <file2>
+
+# Add extended rights to file for user
+setfacl -m u:<username>:rw <filename>
+
+# Kill the command if it took longer than 5 seconds
+timeout 5s <COMMAND>
+
+# Create two catalogs tree
+mkdir -p work/{d1,d2}/{src,bin,bak}
+
+# Generate random number from 1 to X
+echo $[RANDOM%<X>+1]
+
+# Generate random number from 1 to X second option
+shuf -i 1-<X> -n 1
+
+# Send notify message 
+echo "export DISPLAY=:0; export XAUTHORITY=~/.Xauthority; notify-send <test>" | at now+1minute
+
+# Kill the process by name
+pkill -x <name>
+
+# Kill the process by user
+pkill -KILL -u <username>
+
+# Diff for xml files
+diffxml() { diff -wb <(xmllint --format "$1") <(xmllint --format "$2"); }
+
+# Check libraryies for binary file
+ldd /bin/ls
+
+# Replace all occurrences of the character to another
+tr '\015' '\012'
+
+# Generate password
+apg
+
+# Make a website screenshot
+cutycapt
+
+# Put the public key to the copy buffer
+xclip -sel clip < ~/.ssh/id_rsa.pub
+
+# Side-by-side diff
+sdiff -w75 <who1> <who2>
+
+# Diff in a table
+comm <file1> <file2>
+
+# Write binary file with unreadable symbols
+od -c .
+
+# Numerate output lines
+nl
+
+# Record gif file
+byzanz-record --delay 2 -d 20 -x 260 -y 190 -h 1000 <dst>
+
+# show disc statistics
+iostat -xz 1
+
+# Sum two numbers
+bc <<< <num1>+<num2>
+
+# Convert decemal to hex
+echo 'obase=16; ibase=10; <val>'|bc
+
+# Watch for a free memory
+watch -n 5 free -m
+
+# Show csv file
+column -t -s , filename.csv
+
+% cron
+
+# Show all jobs for myself
+crontab -l
+
+# Show jobs for all users
+for user in $(cut -f1 -d: /etc/passwd); do crontab -u $user -l; done
+
+% compression
+
+# Pack files with tar
+tar -czf <archive name> *
+
+# Unpack the archive file with tar
+tar -xvf <archive name>
+
+# Unpack archive file with gzip
+gzip -d <archive_name>

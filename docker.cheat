@@ -1,0 +1,10 @@
+% docker
+
+# Clear all missing images
+docker rmi $(docker images | grep '\(<none>\).*\1' | awk {'print $3'})
+
+# Check for a diffs in container since startup
+docker diff <docker id>
+
+# Find the ip address on the container
+docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' <container id>

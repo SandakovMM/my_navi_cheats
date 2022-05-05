@@ -1,0 +1,8 @@
+% bash
+
+# Use in a command argument of previous command
+less !$
+
+# Use in a command all arguments of previous command
+tail !*
+

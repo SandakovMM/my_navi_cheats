@@ -1,0 +1,43 @@
+% yum, rpm
+
+# Show all files of the package
+rpm -ql <packagename>
+
+# Show all config files of the package
+rpm -qc <packagename>
+
+# Show which pachange install the file
+rpm -qf <filename>
+
+# Show all installed packages
+rpm -qa
+
+# Show package requirements 1 (for rpm file)
+rpm -qp <packagename>.rpm --provides
+
+# Show package requirements 2 (for rpm file)
+rpm -qp <packagename>.rpm --requires
+
+# Show requirements for installed package
+rpm -q --requires <packagename>
+
+# Show repository of the package
+rpm -q --whatprovides '<packagename>'
+
+# Show all package triggers
+rpm -q --triggers <packagename>
+
+# Show repository of the package from yum
+yum whatprovides <packagename>
+
+# Show all known repositories
+yum repolist
+
+# Show the repository information
+yum repoinfo <reponame>
+
+# Show installed packages from yum
+yum list installed
+
+# Show all installed packges with name with duplicates
+yum list --showduplicates <'package_name*'>

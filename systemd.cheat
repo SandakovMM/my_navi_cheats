@@ -1,0 +1,18 @@
+% systemd
+
+# Show systemd file for the service
+systemctl cat <service>
+
+# Enable audit for the file
+systemctl enable --now auditd && auditctl -w <filename> -k <owner?> -pw
+
+# Generate rightly escaped string
+systemd-escape <original>
+
+% journalctl
+
+# Show journal for the specific service
+journalctl -u <service_name>
+
+# Use grep with the pattern
+journalctl -g <pattern>

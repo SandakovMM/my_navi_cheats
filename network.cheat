@@ -1,0 +1,88 @@
+% network
+
+# Which program own the port
+lsof -i tcp:80
+
+# Show all network ports and PIDs of associated processes
+lsof -Pan -i tcp -i udp
+
+# Show all opened files started from directory
+lsof +D <dirname>
+
+% nmap
+
+# Show opened ports for the host
+nmap <hostname>
+
+# Scan all hosts from the txt file
+nmap -iL <hostfilename>
+
+# Detect OS of the host
+nmap -A <hostname>
+
+# Check if firewall is enabled on the host
+nmap -sA <hostname>
+
+# Scan exacely ports from 10 to 300
+nmap -p 10-300 <hostname>
+
+# Hidden scan of TCP ports
+nmap -sT <hostname>
+
+# Show hosts in the subnet
+nmap -sP 192.168.176.0/24 
+
+# Show all hosts where 80 port is opened
+nmap -sT -p 80 -oG - 192.168.1.* | grep open
+
+% ncat
+
+# Listen TCP port on 8080
+nc -lvnp 8080
+
+# Listen UDP port on 8080
+nc -l -u -v -n -p 8080
+
+# Connect to port 8080
+nc -vn 127.0.0.1 8080
+
+# Send file client
+nc -lvnp 8080 < infile
+
+# Receive file on a server
+nc 192.168.125.10 8080 > outfile
+
+# Scan ports
+nc -nvv -w 1 -z 127.0.0.1 1-1000
+
+# Startup unix socet
+nc -vklU /tmp/socket
+
+% Network manager
+
+# Show all devices
+nmcli device
+
+# Make the device hidden to network manager
+nmcli device set <interface> managed no
+
+# Show help
+nmcli
+
+# Show all connections
+nmcli connection
+
+# Enable/disable connection
+nmcli connection up/down <interface>
+
+# Show the connection details
+nmcli connection show <interface>
+
+# Change the connection parameter
+nmcli c m <interface> <parameter> <new value?
+
+# Show wifi networks
+nmcli d wifi list
+
+# Connect to wifi network by ssid
+nmcli d wifi connect <ssid>

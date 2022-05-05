@@ -1,0 +1,16 @@
+% find
+
+# Copy all founded files 
+find ./ -name "<filename>" -exec cp "{}" <dst>/"{}" \;
+
+# Find the word in files with extension
+find . -name "*.<extension>" -exec grep -i -H "<word>" {} ;
+
+# Move find results to grep
+find / -name "<filename>" | xargs grep '<pattern>'
+
+# Copy all files in the folder that satisfy grep
+ls | grep <pattern> | xargs cp -t <dst>
+
+# Several patterns in grep
+grep 'test' <file> | grep -vE '(error|critical|warning)'
