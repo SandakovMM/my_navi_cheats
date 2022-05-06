@@ -1,0 +1,76 @@
+% tcpdump
+
+# Dump packages with extanded information:
+tcpdump -i <interface> -vvv
+
+# Dump packages from any interface
+tcpdump -i any
+
+# Dump packages with output into the file:
+tcpdump -i <interface> -w <filename>
+
+# Read the tcpdumpfile
+tcpdump -r <filename
+
+# Show package payload
+tcpdump -i <interface> -c 1 -x port <port>
+
+# Remoate dump
+ssh <server> 'tshark -f "port !22" -w -' | wireshark -k -i -
+
+# Dump https traffic
+tcpdump -nnSX port 443
+
+# Filter traffic by the ip address
+tcpdump host <ip address>
+
+# Filter traffic by the source ip address
+tcpdump src <ip address>
+
+# Filter traffic bt the destination ip address
+tcpdump dst <ip address>
+
+# Filter traffic by subnet
+tcpdump net 1.2.3.0/24
+
+# Filter traffic by port
+tcpdump port <port>
+
+# Filter traffic by src port
+tcpdump src port <port>
+
+# Show only icmp packages
+tcpdump icmp
+
+# Show only ipv6 packages
+tcpdump ipv6
+
+# Show traffic for several ports
+tcpdump portrange <start port>-<end port>
+
+# Show only packages than less then size in bytes
+tcpdump less <size>
+
+# Show only packages than larger then size in bytes
+tcpdump greater <size>
+
+# Show packages from subnet192.168.0.0/16 into one of two subnets: 10.0.0.0/8 or 172.16.0.0/16
+tcpdump -nvX src net 192.168.0.0/16 and dst net 10.0.0.0/8 or 172.16.0.0/16
+
+# Filter packages by tcp-rst
+tcpdump 'tcp[tcpflags] == tcp-rst'
+
+# Filter packages by tcp-syn
+tcpdump 'tcp[tcpflags] == tcp-syn'
+
+# Filter packages with http cookies
+tcpdump -vvAls0 | grep 'Set-Cookie|Host:|Cookie:'
+
+# Filter ssh
+tcpdump 'tcp[(tcp[12]>>2):4] = 0x5353482D'
+
+# Filter DNS
+tcpdump -vvAs0 port 53
+
+# Filter ftp
+tcpdump -vvAs0 port ftp or ftp-data
