@@ -118,5 +118,8 @@ tar -czf <archive name> *
 # Unpack the archive file with tar
 tar -xvf <archive name>
 
+# Show files in the tar archive
+tar -tvf <archive_name>
+
 # Unpack archive file with gzip
 gzip -d <archive_name>
