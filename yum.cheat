@@ -27,6 +27,12 @@ rpm -q --whatprovides '<packagename>'
 # Show all package triggers
 rpm -q --triggers <packagename>
 
+# Remove package but not dependencies
+rpm -e --nodeps <package name>
+
+# Install package from url
+rpm -i --force <url>
+
 # Show repository of the package from yum
 yum whatprovides <packagename>
 
