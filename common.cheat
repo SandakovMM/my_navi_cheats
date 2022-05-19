@@ -123,3 +123,6 @@ tar -tvf <archive_name>
 
 # Unpack archive file with gzip
 gzip -d <archive_name>
+
+# Show what's inside the archive
+zip -sf <archive_name> | less
