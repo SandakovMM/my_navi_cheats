@@ -49,4 +49,4 @@ yum list installed
 yum list --showduplicates <package_name>
 
 # Download package, but not install
-yum install --downloadonly <package_name>
+yum install --downloadonly --downloaddir=<dst> <package_name>
