@@ -46,4 +46,7 @@ yum repoinfo <reponame>
 yum list installed
 
 # Show all installed packges with name with duplicates
-yum list --showduplicates <'package_name*'>
+yum list --showduplicates <package_name>
+
+# Download package, but not install
+yum install --downloadonly <package_name>
