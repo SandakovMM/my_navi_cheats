@@ -1,0 +1,7 @@
+% curl
+
+Send request without certificate check
+curl -k https://<hostname>
+
+Send an email with curl
+curl smtp://<hostname> --mail-from <sender> --mail-rcpt <recipient> --upload-file <email_file>
