@@ -86,3 +86,17 @@ nmcli d wifi list
 
 # Connect to wifi network by ssid
 nmcli d wifi connect <ssid>
+
+% gre
+
+# Check if gre is enabled
+sudo modprobe ip_gre
+
+# Configure a gre tunnel
+sudo ip tunnel add <gre interface name> mode gre remote <remote address> local <local address> ttl 255
+
+# Startup ip link
+sudo ip link set <gre interface name> up
+
+# Configure ip address
+sudo ip addr add <ip address with subnet> dev <gre interface name>
