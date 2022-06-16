@@ -1,0 +1,10 @@
+% .net, nuget
+
+# Show where nuget store files
+nuget locals all -list
+
+# Clear http cache
+nuget locals http-cache -clear
+
+# Clear all cache files
+nuget locals all -clear
