@@ -1,0 +1,71 @@
+% git
+
+
+# Group git log by author
+git shortlog
+
+# Calculate how much commits was made per author
+git shortlog -ns
+
+# Copy commit message from last commit
+git log -1 --pretty=format:"%s" | xclip
+
+# Create fixup commit for commit with hash
+git commit -a --fixup <commit hash>
+
+# Rebase with autosquash
+git rebase --autosquash --interactive <tag>
+
+# Get commit diff, but ignore changes by regex
+git diff -I <regex>
+
+# Copy current branch name
+git branch --show-current | xclip
+
+# Delete all branches except master and chosen branch
+git branch | grep -v "master" | grep -v <branch> | xargs git branch -D
+
+# Create separated folder with project and branch
+git worktree add <path>
+
+# Make archive that can be moved to another machine
+git bundle
+
+# Show all files in the repository
+git ls-files
+
+# Diff range of commits
+git range-diff
+
+# Remove from repository all files that was removed from the filesystem
+git rm $(git ls-files --deleted)
+
+# Add key/value to commit (could be read later with interpret-trailers)
+git commit --trailer <key>[=<value>]
+
+# Repack repository
+git repack
+
+# Make fixup for head
+gc --fixup @
+
+# Sign commit with GPG
+git commit -S
+
+# Chockout with all submodules update
+git checkout --recurse-submodules
+
+# Path to the main repository folder
+git rev-parse --absolute-git-dir
+
+# Show diff with staged things
+git diff --cached
+
+# Exclude file from stageing
+git restore --staged <filename>
+
+# Calculate how much fixups we already have in last commit
+git log -1 --pretty=format:"%s" | tr -cd '!' | wc -c
+
+# Show history before 'git reset --hard'
+git reflog
