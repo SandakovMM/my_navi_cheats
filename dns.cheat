@@ -16,23 +16,23 @@ dig @<server ip> <domain>
 Get ns record
 dig ns <domain>
 
-Get reverse entry
+# Get reverse entry
 dig -x <ip address>
 
-Get only information received in the response
+# Get only information received in the response
 dig +noall +answer ns <domain>
 
-Get only information received in the response short
+# Get only information received in the response short
 dig +short ns <domain>
 
-Trace the request
+# Trace the request
 dig +trace <domain>
 
-Get NS servers for the record
+# Get NS servers for the record
 dig +short <domain> ns
 
-Make request due tcp
+# Make request due tcp
 dig +tcp +noall +answer +comments @<DNS server> <domain>
 
-Make request over https (newest versions of dig)
+# Make request over https (newest versions of dig)
 dig +https +noall +answer +comments @<DNS server> <domain>
