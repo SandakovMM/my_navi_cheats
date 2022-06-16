@@ -1,0 +1,10 @@
+% postfix
+
+# Take a parameter
+postconf <parameter name>
+
+# Get version of postfix
+postconf -d | grep mail_version
+
+# Show sending map from file
+postmap -s <path to the map file>
