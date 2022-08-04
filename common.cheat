@@ -72,6 +72,9 @@ cutycapt
 # Put the public key to the copy buffer
 xclip -sel clip < ~/.ssh/id_rsa.pub
 
+# Print data from copy buffer
+xclip -o
+
 # Side-by-side diff
 sdiff -w75 <who1> <who2>
 
@@ -126,3 +129,14 @@ gzip -d <archive_name>
 
 # Show what's inside the archive
 zip -sf <archive_name> | less
+
+% ipc
+
+# Show list of ipc objects
+ipcs
+
+# Remove an ipc object
+ipcrm
+
+# Create an ipc object
+ipcmk

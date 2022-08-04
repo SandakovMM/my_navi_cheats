@@ -14,3 +14,9 @@ ls | grep <pattern> | xargs cp -t <dst>
 
 # Several patterns in grep
 grep 'test' <file> | grep -vE '(error|critical|warning)'
+
+# Remove founded files after a conformation
+find ~/effective-shell -name "*.txt" -ok rm {} \;
+
+# Find changes not so long ago
+find . -not -path "*/\.*" -mtime -2
