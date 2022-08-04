@@ -1,0 +1,34 @@
+% perf
+
+# Calculate statistics for all processes with call graph
+perf record -e block:block_rq_issue -ag
+
+# Check perf report
+perf report
+
+# Show known events list
+perf list
+
+# Show scheduled trace points list
+perf list 'sched:*'
+
+# Show CPU statistics for a command
+perf stat <command>
+
+# Show detailed CPU statistics
+perf stat -d <command>
+
+# Show CPU statistics by PID
+perf stat -p <PID>
+
+# Show whole system statistics for 5 seconds
+perf stat -a sleep 5
+
+# Profile on-CPU for command
+perf record -F 99 <command>
+
+# Profile on-CPU for process by PID in a 10 seconds
+perf record -F 99 <PID> sleep 10
+
+#  Profile on-CPU for process by PID in a 10 seconds with call graph
+perf record -g -F 99 <PID> sleep 10
